@@ -1,15 +1,12 @@
 function increasingSubset(inputArray) {
-    let result = [];
-    for (let i = 0; i < inputArray.length; i++) {
-        let prevEl = result[result.length - 1];
-        let curEl = inputArray[i];
-        if (prevEl == undefined) {
-            result.push(curEl);
-        } else if (curEl >= prevEl) {
-            result.push(curEl);
+    let biggestOne = Number.MIN_SAFE_INTEGER;
+    return inputArray.reduce((acc, val) => {
+        if (val >= biggestOne) {
+            biggestOne = val;
+            acc.push(val);
         }
-    }
-    return result;
+        return acc;
+    }, []);
 }
 increasingSubset([1,
     3,
