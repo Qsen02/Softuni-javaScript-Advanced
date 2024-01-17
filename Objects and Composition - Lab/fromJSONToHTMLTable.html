@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FromJSONToHTMLTable</title>
+    <style>
+        table,
+        th {
+            border: groove;
+            border-collapse: collapse;
+        }
+        
+        td {
+            border: 1px solid black;
+        }
+        
+        td,
+        th {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+    </div>
+    <script>
+        function fromJSONToHTMLTable(input) {
+            let array = JSON.parse(input);
+            let code = "";
+            let headerCode = "";
+            for (let key in array[0]) {
+                key = key.replace(/&/g, "&amp;");
+                key = key.replace(/</g, "&lt;");
+                key = key.replace(/>/g, "&gt;");
+                key = key.replace(/"/g, "&quot;");
+                key = key.replace(/'/g, "&#39;");
+                headerCode += `<th>${key}</th>`
+            }
+            code += `   <tr>${headerCode}</tr>`;
+            for (let object of array) {
+                let bodyCode = "";
+                for (let key in object) {
+                    bodyCode += `<td>${object[key]}</td>`;
+                }
+                code += `\n   <tr>${bodyCode}</tr>`
+            }
+            let result = `<table>\n${code}\n</table>`;
+            return result;
+        }
+        window.onload = function() {
+            let container = document.getElementById('wrapper');
+            container.innerHTML = fromJSONToHTMLTable(`[{"Name":"Pesho","Score":4," Grade":8},{"Name":"Gosho","Score":5," Grade":8},{"Name":"Angel","Score":5.50," Grade":10}]`);
+        };
+    </script>
+</body>
+
+</html>
