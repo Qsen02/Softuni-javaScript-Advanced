@@ -12,6 +12,9 @@ function solve() {
                 let textEl = el.textContent;
                 if (textEl.includes(match)) {
                     trCollection.classList.add("select");
+                    break;
+                } else {
+                    trCollection.classList.remove("select");
                 }
             }
         }
