@@ -7,8 +7,8 @@ function solve() {
         let match = document.getElementById("searchField").value;
         console.log(matrix);
         for (let trCollection of matrix) {
-            let arrAsArray = Array.from(trCollection.children);
-            for (let el of arrAsArray) {
+            let arr = Array.from(trCollection.children);
+            for (let el of arr) {
                 let textEl = el.textContent;
                 if (textEl.includes(match)) {
                     trCollection.classList.add("select");
