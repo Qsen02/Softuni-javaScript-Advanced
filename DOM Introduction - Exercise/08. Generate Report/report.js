@@ -21,8 +21,18 @@ function generateReport() {
             object[key] = tdContent;
             count++;
         }
-        report.push(object);
+        let keyCount = 0;
+        for (let key in object) {
+            keyCount++;
+        }
+        if (keyCount != 0) {
+            report.push(object);
+        }
     }
-    let result = JSON.stringify(report, null, 2);
-    document.getElementById("output").value = result;
+    if (report.length > 0) {
+        let result = JSON.stringify(report, null, 2);
+        document.getElementById("output").value = result;
+    } else {
+        document.getElementById("output").value = "";
+    }
 }
