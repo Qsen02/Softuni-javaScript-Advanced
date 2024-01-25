@@ -1,13 +1,13 @@
 function solve() {
     let text = document.getElementById("input").value;
-    let textArray = text.split(". ");
+    let textArray = text.split(".").filter(el => el.length > 0);
     let buff = "";
     let result = "";
     let counter = 0;
     for (let sentance of textArray) {
         counter++;
         if (!sentance.includes(".")) {
-            sentance += ". ";
+            sentance += ".";
         }
         buff += sentance;
         if (counter % 3 == 0) {
@@ -15,7 +15,7 @@ function solve() {
             buff = "";
         }
     }
-    if (buff != "") {
+    if (buff) {
         result += `\n<p>${buff}</p>`;
     }
     document.getElementById("output").innerHTML = result;
