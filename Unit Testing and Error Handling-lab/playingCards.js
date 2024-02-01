@@ -10,6 +10,8 @@ function playingCards(face, suit) {
     }
     if (!(cards.faces.includes(face))) {
         throw new Error("Invalid face!");
+    } else if (!(cards.suits.includes(suit))) {
+        throw new Error("Invalid suit!");
     }
     let format = {
         S: "\u2660",
@@ -19,5 +21,5 @@ function playingCards(face, suit) {
     }
     return cards;
 }
-let object = playingCards("q", 'h');
+let object = playingCards("2", 'Q');
 console.log(object.prints());

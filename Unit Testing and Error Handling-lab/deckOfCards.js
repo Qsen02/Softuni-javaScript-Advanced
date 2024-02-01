@@ -28,7 +28,7 @@ function printDeckOfCards(cards) {
                 face = face.toUpperCase();
                 suit = suit.toUpperCase();
             }
-            if (!(cards.faces.includes(face))) {
+            if (!(cards.faces.includes(face)) || !(cards.suits.includes(suit))) {
                 console.log(`Invalid card: ${card}`);
                 return;
             }
@@ -42,4 +42,4 @@ function printDeckOfCards(cards) {
     }
     console.log(cardDeck.join(" "));
 }
-printDeckOfCards(['AS', '10S', 'KH', '2C']);
+printDeckOfCards(['AQ', '10S', 'KH', '2C']);
