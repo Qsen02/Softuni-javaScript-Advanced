@@ -32,11 +32,14 @@ class Contact {
     }
     set online(online) {
         this._online = online;
-        let divRef = document.querySelector(".title");
+        this.checkOnline();
+    }
+    checkOnline() {
+        let divRef1 = document.querySelector(".title");
         if (this.online == true) {
-            divRef.classList.add("online");
+            divRef1.classList.add("online");
         } else {
-            divRef.classList.remove("online");
+            divRef1.classList.remove("online");
         }
     }
 }
