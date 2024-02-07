@@ -12,6 +12,7 @@ function validate() {
     checkbox.addEventListener("change", checkCompany);
     let submitButton = document.getElementById("submit");
     submitButton.addEventListener("click", submition);
+    let isValid = true;
 
     function checkCompany(event) {
         if (event.target.checked) {
@@ -28,24 +29,28 @@ function validate() {
             usernameInput.style.border = "none";
         } else {
             usernameInput.style.borderColor = "red";
+            isValid = false;
         }
 
         if (emailPattern.test(emailInput.value)) {
             emailInput.style.border = "none";
         } else {
             emailInput.style.borderColor = "red";
+            isValid = false;
         }
 
         if (passwordPattern.test(passwordInput.value) && confirmPasswordInput.value == passwordInput.value) {
             passwordInput.style.border = "none";
         } else {
             passwordInput.style.borderColor = "red";
+            isValid = false;
         }
 
         if (passwordPattern.test(confirmPasswordInput.value) && confirmPasswordInput.value == passwordInput.value) {
             confirmPasswordInput.style.border = "none";
         } else {
             confirmPasswordInput.style.borderColor = "red";
+            isValid = false;
         }
 
         if (checkbox.checked) {
@@ -54,19 +59,11 @@ function validate() {
                 companyNumberInput.style.border = "none";
             } else {
                 companyNumberInput.style.borderColor = "red";
+                isValid = false;
             }
         }
-        if (usernameInput.style.border == "none" &&
-            emailInput.style.border == "none" &&
-            passwordInput.style.border == "none" &&
-            confirmPasswordInput.style.border == "none") {
-            if (checkbox.checked) {
-                if (companyNumberInput.style.border == "none") {
-                    result.style.display = "block";
-                }
-            } else {
-                result.style.display = "block";
-            }
+        if (isValid) {
+            result.style.display = "block";
         }
     }
 }
