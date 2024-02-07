@@ -7,9 +7,9 @@ function validate() {
     let companyNumberInput = document.getElementById("companyNumber");
     let companyInfo = document.getElementById("companyInfo");
     let userNamePattern = /^[a-zA-Z0-9]{3,20}$/;
-    let emailPattern = /^[a-z0-9]+@[a-z0-9]+\.[a-z]+$/;
+    let emailPattern = /^[^@.]+@[^@]*\.[^@]*$/;
     let passwordPattern = /^[\w]{5,15}$/;
-    checkbox.addEventListener("click", checkCompany);
+    checkbox.addEventListener("change", checkCompany);
     let submitButton = document.getElementById("submit");
     submitButton.addEventListener("click", submition);
 
@@ -36,7 +36,7 @@ function validate() {
             emailInput.style.borderColor = "red";
         }
 
-        if (passwordPattern.test(passwordInput.value)) {
+        if (passwordPattern.test(passwordInput.value) && confirmPasswordInput.value == passwordInput.value) {
             passwordInput.style.border = "none";
         } else {
             passwordInput.style.borderColor = "red";
