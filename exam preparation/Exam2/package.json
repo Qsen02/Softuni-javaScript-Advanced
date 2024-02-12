@@ -1,0 +1,17 @@
+{
+    "name": "exam2",
+    "version": "1.0.0",
+    "description": "",
+    "main": "flightBookingSystem.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "chai": "^5.0.3",
+        "mocha": "^10.3.0"
+    }
+}
