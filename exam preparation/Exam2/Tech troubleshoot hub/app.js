@@ -21,20 +21,7 @@ function solution() {
             return;
         }
         let previewRef = document.querySelector(".preview-list");
-        let liEl = createElement("li");
-        liEl.classList.add("problem-content");
-        let articleEl = createElement("article");
-        let empEl = createElement("p", `From: ${employee}`);
-        articleEl.appendChild(empEl);
-        let categoryEl = createElement("p", `Category: ${category}`);
-        articleEl.appendChild(categoryEl);
-        let urgencyEl = createElement("p", `Urgency: ${urgency}`);
-        articleEl.appendChild(urgencyEl);
-        let teamEl = createElement("p", `Assigned to: ${team}`);
-        articleEl.appendChild(teamEl);
-        let descriptionEl = createElement("p", `Description: ${description}`);
-        articleEl.appendChild(descriptionEl);
-        liEl.appendChild(articleEl);
+        let liEl = createLiElement(employee, category, urgency, team, description);
         let editBtn = createElement("button", "Edit");
         editBtn.classList.add("edit-btn");
         let continueBtn = createElement("button", "Continue");
@@ -74,20 +61,7 @@ function solution() {
         let previewRef = document.querySelector(".preview-list");
         previewRef.children[0].remove();
         let pendingListRef = document.querySelector(".pending-list");
-        let liEl = createElement("li");
-        liEl.classList.add("problem-content");
-        let articleEl = createElement("article");
-        let empEl = createElement("p", `From: ${emp}`);
-        articleEl.appendChild(empEl);
-        let categoryEl = createElement("p", `Category: ${category}`);
-        articleEl.appendChild(categoryEl);
-        let urgencyEl = createElement("p", `Urgency: ${urgency}`);
-        articleEl.appendChild(urgencyEl);
-        let teamEl = createElement("p", `Assigned to: ${team}`);
-        articleEl.appendChild(teamEl);
-        let descriptionEl = createElement("p", `Description: ${description}`);
-        articleEl.appendChild(descriptionEl);
-        liEl.appendChild(articleEl);
+        let liEl = createLiElement(emp, category, urgency, team, description);
         let resolveBtn = createElement("button", "Resolved");
         resolveBtn.classList.add("resolve-btn");
         liEl.appendChild(resolveBtn);
@@ -106,20 +80,7 @@ function solution() {
         let previewRef = document.querySelector(".pending-list");
         previewRef.children[0].remove();
         let resolveListRef = document.querySelector(".resolved-list");
-        let liEl = createElement("li");
-        liEl.classList.add("problem-content");
-        let articleEl = createElement("article");
-        let empEl = createElement("p", `From: ${emp}`);
-        articleEl.appendChild(empEl);
-        let categoryEl = createElement("p", `Category: ${category}`);
-        articleEl.appendChild(categoryEl);
-        let urgencyEl = createElement("p", `Urgency: ${urgency}`);
-        articleEl.appendChild(urgencyEl);
-        let teamEl = createElement("p", `Assigned to: ${team}`);
-        articleEl.appendChild(teamEl);
-        let descriptionEl = createElement("p", `Description: ${description}`);
-        articleEl.appendChild(descriptionEl);
-        liEl.appendChild(articleEl);
+        let liEl = createLiElement(emp, category, urgency, team, description);
         let clearBtn = createElement("button", "Clear");
         clearBtn.classList.add("clear-btn");
         liEl.appendChild(clearBtn);
@@ -138,5 +99,23 @@ function solution() {
             element.textContent = content;
         }
         return element;
+    }
+
+    function createLiElement(employee, category, urgency, team, description) {
+        let liEl = createElement("li");
+        liEl.classList.add("problem-content");
+        let articleEl = createElement("article");
+        let empEl = createElement("p", `From: ${employee}`);
+        articleEl.appendChild(empEl);
+        let categoryEl = createElement("p", `Category: ${category}`);
+        articleEl.appendChild(categoryEl);
+        let urgencyEl = createElement("p", `Urgency: ${urgency}`);
+        articleEl.appendChild(urgencyEl);
+        let teamEl = createElement("p", `Assigned to: ${team}`);
+        articleEl.appendChild(teamEl);
+        let descriptionEl = createElement("p", `Description: ${description}`);
+        articleEl.appendChild(descriptionEl);
+        liEl.appendChild(articleEl);
+        return liEl;
     }
 }
