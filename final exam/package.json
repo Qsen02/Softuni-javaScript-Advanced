@@ -1,0 +1,17 @@
+{
+    "name": "final-exam",
+    "version": "1.0.0",
+    "description": "",
+    "main": "Task 1.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "chai": "^5.0.3",
+        "mocha": "^10.3.0"
+    }
+}
